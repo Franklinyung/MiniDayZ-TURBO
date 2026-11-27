@@ -71,11 +71,33 @@ GUN_AMMO = {
 }
 GUN_ORDER = sorted(GUN_AMMO)
 
-# .308 Win 弹药（用户要求：100% 掉落 + 每次 100 发）
-AMMO_308_ID = 138          # .308 Win 弹药物品 ID
-AMMO_308_OBJ = 1102        # .308 弹药实例对象 ID（图片 ammo_308）
-AMMO_308_COUNT = 100       # 每次掉多少发
-AMMO_308_ALL_RANDOM = True # True = 剩下那批「随机物资点」全部改成 .308
+# 所有弹药统一固定数量（用户要求：所有子弹都固定 100 发）
+ALL_AMMO_COUNT = 100
+# 各弹药口径对应的「弹药物品对象」ID（均已按 ammo_* 图片核实）
+AMMO_OBJECTS = [
+    30,    # 5.56x45
+    29,    # .45 ACP
+    31,    # 7.62x54R
+    58,    # 7.62x39
+    57,    # 5.45x39
+    59,    # .357 M
+    444,   # .22 LR
+    566,   # 9x19 P
+    137,   # 9x18 M
+    138,   # 9x39
+    941,   # 40mm 榴弹
+    942,   # VOG-25 榴弹
+    1102,  # .308 Win
+    1369,  # 12.7x108
+    1441,  # 40mm 瘟疫榴弹
+    927,   # 50 BMG 弹药箱
+    1374,  # 弹药箱
+]
+AMMO_OBJ_SET = set(AMMO_OBJECTS)
+
+# .308 独占剩余物资点（用户要求 .308 100% 掉落）
+AMMO_308_ID = 138
+AMMO_308_ALL_RANDOM = True
 
 CONSUME_VARS = (11, 12, 13, 15, 16)
 # ────────────────────────────────────────────────────────────
@@ -97,7 +119,7 @@ if m:
 data = json.loads(body)
 project = data["project"]
 
-S = dict(xp_nodes=0, xp_penalty=0, consume=0, stack=0, ammo308=0)
+S = dict(xp_nodes=0, xp_penalty=0, consume=0, stack=0, ammo=0)
 drop_slots = []   # 收集所有「随机掉落」的末位参数引用
 
 
@@ -147,22 +169,24 @@ def walk(o):
             o[1][2][1] = -1
             S["consume"] += 1
 
-        # 3.5 .308 弹药数量：所有赋值改成固定 100 发
-        if (len(o) >= 5 and o[0] == AMMO_308_OBJ and o[1] == 88
-                and isinstance(o[5], list) and len(o[5]) == 2
+        # 3.5 所有弹药：数量固定为 ALL_AMMO_COUNT 发
+        if (len(o) >= 5 and isinstance(o[0], int) and o[0] in AMMO_OBJ_SET
+                and o[1] == 88 and isinstance(o[5], list) and len(o[5]) == 2
                 and o[5][0] == [10, 1]):
             val = o[5][1]
             if isinstance(val, list) and val[0] == 7:
                 old = val[1]
-                # 只改常量/随机表达式；动态读取（[20,...] 实例变量）保持原样
+                # 动态读取（[20,...] 从循环索引取）保持原样，只改常量/随机表达式
                 if not (isinstance(old, list) and old[0] == 20):
-                    val[1] = [0, AMMO_308_COUNT]
-                    S["ammo308"] += 1
+                    val[1] = [0, ALL_AMMO_COUNT]
+                    S["ammo"] += 1
 
-        # 3.6 .308 的 perk_farmer 加成改成 +0，保证精确 100 发
-        if (len(o) >= 5 and o[0] == AMMO_308_OBJ and o[1] == 83
-                and isinstance(o[5], list) and len(o[5]) == 2
-                and o[5][0] == [10, 1] and o[5][1] == [7, [0, 10]]):
+        # 3.6 弹药数量加成（perk_farmer 等）归零，保证精确数量
+        if (len(o) >= 5 and isinstance(o[0], int) and o[0] in AMMO_OBJ_SET
+                and o[1] == 83 and isinstance(o[5], list) and len(o[5]) == 2
+                and o[5][0] == [10, 1]
+                and isinstance(o[5][1], list) and o[5][1][0] == 7
+                and isinstance(o[5][1][1], list) and o[5][1][1][0] == 0):
             o[5][1] = [7, [0, 0]]
 
         # 4. 堆叠上限解锁
@@ -210,10 +234,9 @@ print(f"[掉落] 随机掉落点 {total} 个：{paid} 个（{paid*100//total}%�
 out = json.dumps(data, ensure_ascii=False, separators=(",", ":"))
 open(DST, "w", encoding="utf-8").write(("\ufeff" if bom else "") + out)
 
+print(f"[弹药] 全部 {len(AMMO_OBJECTS)} 种口径数量固定为 {ALL_AMMO_COUNT} 发（改了 {S['ammo']} 处赋值，加成归零）")
 if AMMO_308_ALL_RANDOM:
-    print(f"[.308] 剩余随机点 {n308} 个全部改为 .308 弹药；数量固定 {AMMO_308_COUNT} 发（改了 {S['ammo308']} 处赋值）")
-else:
-    print(f"[.308] 数量固定 {AMMO_308_COUNT} 发（改了 {S['ammo308']} 处赋值）")
+    print(f"[.308] 剩余随机点 {n308} 个全部改为 .308 弹药")
 print(f"[经验] 常量节点 ×{XP_MULT}：{S['xp_nodes']} 个；扣分保持原样 {S['xp_penalty']} 处")
 if INFINITE_ITEMS:
     print(f"[无限] 消耗动作 -1 → +1：{S['consume']} 处")
