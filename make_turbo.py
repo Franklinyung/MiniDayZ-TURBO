@@ -1,14 +1,15 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """
-MiniDayZ+ Reimagined 2.3.8 —— TURBO v3 生成器
+MiniDayZ+ Reimagined 2.3.8 —— TURBO v4 生成器
 从 data.orig.js（原版备份）读取，生成修改过的 data.js。可反复重跑，不会累积修改。
 
-功能：
-  1. 经验收益 ×15（递归处理所有经验表达式，死亡扣分保持原样）
-  2. 随机掉落 100% 变成最强枪 PKM 或它的弹药 7.62x54R
-  3. 子弹/物品用不完：消耗动作由 -1 变成 +1（越用越多）
-  4. 物品堆叠上限解锁到无限（配合 3，避免数量溢出）
+改动：
+  1. 经验收益 ×15（递归处理表达式树，死亡扣分不变）
+  2. 约 80% 的随机掉落点改成「枪 + 配套弹药」成对掉落（37 把枪全覆盖）
+     剩 20% 保持原版随机，保留物资多样性
+  3. 物品消耗 -1 → +1（子弹/药品/食物越用越多）
+  4. 堆叠上限解锁到 31415926
 """
 import json
 import re
@@ -23,16 +24,53 @@ DST = os.path.join(HERE, "data.js")
 
 # ───────────────────────── 可调参数 ─────────────────────────
 XP_MULT = 15          # 经验倍率
+LOOT_GUN_RATE = 0.80  # 用于「枪+弹药」配对的掉落点比例（0~1）
 
-GUN_ID = 246          # 最强枪 PKM（60-100 伤害 / 650 发每分 / 100 发弹链 / 无附加条件）
-AMMO_ID = 13          # 它的弹药 7.62x54R
-GUN_EVERY = 3         # 每 N 次随机掉落 1 次是枪，其余是弹药
+INFINITE_ITEMS = True # 物品消耗 -1 → +1
+INFINITE_STACK = True # 堆叠上限解锁
 
-INFINITE_ITEMS = True # True = 所有可堆叠物品（含子弹）消耗时 +1，用不完
-                      # False = 恢复原版消耗
-INFINITE_STACK = True # True = 堆叠上限解锁为 31415926（配合上面，数量涨了也不会溢出）
+# 枪 → 它用的弹药（ID 均已校验存在于 Spawn_drop 生成表）
+GUN_AMMO = {
+    151: 12,   # FNX 45          → .45 ACP
+    152: 12,   # 柯尔特 1911       → .45 ACP
+    156: 13,   # 莫辛-纳甘         → 7.62x54R
+    158: 11,   # M4A1            → 5.56x45
+    159: 14,   # AKM             → 7.62x39
+    160: 15,   # AK-74           → 5.45x39
+    161: 15,   # AKs-74u         → 5.45x39
+    167: 16,   # M92 连发步枪      → .357 M
+    168: 13,   # SVD 德拉贡诺夫     → 7.62x54R
+    169: 69,   # MP5K            → 9x19 P
+    172: 13,   # 短管莫辛          → 7.62x54R
+    173: 12,   # UMP-45          → .45 ACP
+    174: 13,   # RPK             → 7.62x54R
+    175: 138,  # FN-FAL          → .308 Win
+    176: 12,   # 雕花柯尔特        → .45 ACP
+    177: 11,   # AUG A1          → 5.56x45
+    178: 17,   # Saiga-12K       → 12 号霰弹
+    181: 100,  # PM 手枪         → 9x18 M
+    182: 100,  # PB 手枪         → 9x18 M
+    185: 101,  # VSS 消音狙击枪    → 9x39
+    191: 11,   # 柯尔特 M16A2     → 5.56x45
+    193: 11,   # M4A1            → 5.56x45
+    194: 14,   # AKM             → 7.62x39
+    196: 17,   # Saiga-12K       → 12 号霰弹
+    197: 13,   # RPK             → 7.62x54R
+    198: 11,   # M16A2           → 5.56x45
+    199: 11,   # AUG A1          → 5.56x45
+    230: 105,  # Milkor MGL      → 40mm 榴弹
+    232: 11,   # FAMAS F1        → 5.56x45
+    233: 11,   # Mini-14         → 5.56x45
+    234: 105,  # M79             → 40mm 榴弹
+    237: 15,   # AK-74           → 5.45x39
+    238: 15,   # AKs-74u         → 5.45x39
+    240: 101,  # AS-VAL          → 9x39
+    241: 11,   # M249 SAW        → 5.56x45
+    245: 138,  # M134 加特林      → .308 Win
+    246: 13,   # PKM             → 7.62x54R
+}
+GUN_ORDER = sorted(GUN_AMMO)
 
-# 背包格(obj6) 的全部数量变量：不同装备槽位的物品数量分开存
 CONSUME_VARS = (11, 12, 13, 15, 16)
 # ────────────────────────────────────────────────────────────
 
@@ -40,28 +78,25 @@ raw = open(SRC, encoding="utf-8").read()
 bom = raw.startswith("\ufeff")
 body = raw.lstrip("\ufeff")
 
-# 校验枪/弹药 ID 真的能生成
 m = re.search(r'\[189,40,null,\d+,false,false,false,\d+,false,\[\[1,\[2,"Spawn_drop"\]\]\]\]', body)
 if m:
     nxt = re.search(r'\[189,40,null,\d+,false,false,false,\d+,false,\[\[1,\[2,"', body[m.end():])
     blk = body[m.start(): m.end() + nxt.start()] if nxt else body[m.start():]
     valid = {int(x) for x in re.findall(r'\[\[0,\[0,0\]\],\[8,0\],\[7,\[0,(\d+)\]\]\]', blk)}
-    for tag, i in (("枪", GUN_ID), ("弹药", AMMO_ID)):
-        if i not in valid:
-            sys.exit(f"[中止] {tag} ID {i} 不在生成表里")
-    print(f"[检查] 枪 {GUN_ID} / 弹药 {AMMO_ID} 均可生成 ✓（生成表 {len(valid)} 种）")
+    bad = [(g, a) for g, a in GUN_AMMO.items() if g not in valid or a not in valid]
+    if bad:
+        sys.exit(f"[中止] 这些枪/弹药不在生成表里: {bad}")
+    print(f"[检查] {len(GUN_AMMO)} 把枪及其弹药均可生成 ✓（生成表 {len(valid)} 种）")
 
 data = json.loads(body)
 project = data["project"]
 
-S = dict(xp_nodes=0, xp_penalty=0, drops=0, guns=0, ammo=0,
-         consume=0, stack=0)
+S = dict(xp_nodes=0, xp_penalty=0, consume=0, stack=0)
+drop_slots = []   # 收集所有「随机掉落」的末位参数引用
 
 
 def scale_xp(expr):
-    """递归把经验表达式里的正数常量 × XP_MULT（不用任何运算符节点，零歧义）"""
     if isinstance(expr, list):
-        # [0, N] 数字常量
         if len(expr) == 2 and expr[0] == 0 and isinstance(expr[1], (int, float)) \
                 and not isinstance(expr[1], bool):
             if expr[1] > 0:
@@ -70,15 +105,14 @@ def scale_xp(expr):
             else:
                 S["xp_penalty"] += 1
             return
-        # 其余节点（三元/变量/对象表达式）继续下钻；跳过 [23,"var"] 这类变量引用
-        for i, v in enumerate(expr):
+        for v in expr:
             if isinstance(v, list):
                 scale_xp(v)
 
 
 def walk(o):
     if isinstance(o, list):
-        # ── 1. 经验动作 [-1,122,null,uid,false,[[11,"expierence_points"],[7,EXPR]]]
+        # 1. 经验
         if (len(o) == 6 and o[0] == -1 and o[1] == 122
                 and isinstance(o[5], list) and len(o[5]) == 2):
             a, b = o[5]
@@ -87,7 +121,7 @@ def walk(o):
                     and isinstance(b, list) and len(b) >= 2 and b[0] == 7):
                 scale_xp(b[1])
 
-        # ── 2. 掉落 [189,69,...,[[1,[2,"Spawn_drop"]],[13,...,[7,[0,-1]]]]]
+        # 2. 收集随机掉落点（之后统一配对）
         if (len(o) >= 6 and o[0] == 189 and o[1] == 69
                 and isinstance(o[5], list) and len(o[5]) >= 2):
             pars = o[5]
@@ -96,18 +130,9 @@ def walk(o):
                 last = pars[1][-1]
                 if (isinstance(last, list) and len(last) == 2 and last[0] == 7
                         and last[1] == [0, -1]):
-                    S["drops"] += 1
-                    if S["drops"] % GUN_EVERY == 0:
-                        last[1][1] = GUN_ID
-                        S["guns"] += 1
-                    else:
-                        last[1][1] = AMMO_ID
-                        S["ammo"] += 1
+                    drop_slots.append(last[1])
 
-        # ── 3. 物品消耗 [0,[5,[21,6,false,null,VAR],[0,1]]]  数量 - 1
-        #      背包格(obj6) 有 5 个独立数量变量：var11/12/13/15/16
-        #      （对应不同装备槽位，弹药分布在不同变量里），必须全部处理。
-        #      把常量 1 改成 -1 → 「数量 - (-1)」= 数量 +1。
+        # 3. 物品消耗 -1 → +1
         if (len(o) == 2 and o[0] == 0 and isinstance(o[1], list)
                 and len(o[1]) == 3 and o[1][0] == 5
                 and isinstance(o[1][1], list) and len(o[1][1]) == 5
@@ -115,10 +140,8 @@ def walk(o):
                 and o[1][2] == [0, 1]):
             o[1][2][1] = -1
             S["consume"] += 1
-            S.setdefault("by_var", {})
-            S["by_var"][o[1][1][4]] = S["by_var"].get(o[1][1][4], 0) + 1
 
-        # ── 4. 堆叠上限 [18,[12,[23,"perk_cybb"],[0,1]],[0,31415926],[0,X]] → 恒无限
+        # 4. 堆叠上限解锁
         if (len(o) == 4 and o[0] == 18
                 and o[1] == [12, [23, "perk_cybb"], [0, 1]]
                 and o[2] == [0, 31415926]):
@@ -136,13 +159,29 @@ def walk(o):
 
 walk(project)
 
+# ── 掉落配对：前 80% 的点改成「枪 + 对应弹药」相邻成对 ──
+total = len(drop_slots)
+paid = int(total * LOOT_GUN_RATE)
+if paid % 2:
+    paid -= 1                       # 保证成对
+gun_pos = 0
+for idx in range(paid):
+    gun = GUN_ORDER[gun_pos % len(GUN_ORDER)]
+    if idx % 2 == 0:
+        drop_slots[idx][1] = gun              # 枪
+    else:
+        drop_slots[idx][1] = GUN_AMMO[gun]    # 这把枪的弹药
+        gun_pos += 1
+pairs = paid // 2
+print(f"[掉落] 随机掉落点 {total} 个：{paid} 个（{paid*100//total}%）改为枪+弹药成对（{pairs} 对，覆盖 {len(GUN_ORDER)} 把枪），"
+      f"剩 {total - paid} 个保持随机")
+
 out = json.dumps(data, ensure_ascii=False, separators=(",", ":"))
 open(DST, "w", encoding="utf-8").write(("\ufeff" if bom else "") + out)
 
 print(f"[经验] 常量节点 ×{XP_MULT}：{S['xp_nodes']} 个；扣分保持原样 {S['xp_penalty']} 处")
-print(f"[掉落] 随机掉落 {S['drops']} 处全部改为必出：枪 {S['guns']} / 弹药 {S['ammo']}")
 if INFINITE_ITEMS:
-    print(f"[无限] 消耗动作 -1 → +1：{S['consume']} 处  {dict(sorted(S.get('by_var', {}).items()))}")
+    print(f"[无限] 消耗动作 -1 → +1：{S['consume']} 处")
 if INFINITE_STACK:
     print(f"[上限] 堆叠上限解锁：{S['stack']} 处")
 print(f"[输出] {DST}  {os.path.getsize(DST) / 1024 / 1024:.1f} MB")
