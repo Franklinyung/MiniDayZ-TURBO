@@ -35,6 +35,12 @@ ALL_AMMO_COUNT = 100      # 所有弹药固定数量
 INFINITE_ITEMS = True
 INFINITE_STACK = True
 
+# 移动速度：玩家 obj193 的 var3 是「速度加成」，游戏先归零再按 perk 累加。
+# AltMove 行为的基础速度实测为 5，总速度 = 5 + var3。
+# 想 N 倍速 → SPEED_BONUS = 5*N - 5。5 倍 = 20（总速度 25）。
+SPEED_BONUS = 20
+PLAYER_OBJ = 193
+
 # 枪 → 它用的弹药
 GUN_AMMO = {
     151: 12, 152: 12, 156: 13, 158: 11, 159: 14, 160: 15, 161: 15, 167: 16,
@@ -89,7 +95,7 @@ if m:
 data = json.loads(body)
 project = data["project"]
 
-S = dict(xp_nodes=0, xp_penalty=0, consume=0, stack=0, ammo=0)
+S = dict(xp_nodes=0, xp_penalty=0, consume=0, stack=0, ammo=0, speed=0)
 spawn_calls = []     # 所有 Spawn_drop 调用的参数列表
 
 
@@ -162,6 +168,13 @@ def walk(o):
             o[1][2][1] = -1
             S["consume"] += 1
 
+        # 5.5 移动速度：把「速度加成归零」改成常驻基数
+        if (len(o) >= 5 and isinstance(o[0], int) and o[0] == PLAYER_OBJ
+                and o[1] == 88 and isinstance(o[5], list) and len(o[5]) == 2
+                and o[5][0] == [10, 3] and o[5][1] == [7, [0, 0]]):
+            o[5][1] = [7, [0, SPEED_BONUS]]
+            S["speed"] += 1
+
         # 6. 堆叠上限解锁
         if (len(o) == 4 and o[0] == 18
                 and o[1] == [12, [23, "perk_cybb"], [0, 1]]
@@ -205,4 +218,5 @@ if INFINITE_ITEMS:
     print(f"[无限] 消耗动作 -1 → +1：{S['consume']} 处")
 if INFINITE_STACK:
     print(f"[上限] 堆叠上限解锁：{S['stack']} 处")
+print(f"[速度] 玩家移动速度常驻加成 +{SPEED_BONUS}（{S['speed']} 处）")
 print(f"[输出] {DST}  {os.path.getsize(DST) / 1024 / 1024:.1f} MB")
