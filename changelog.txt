@@ -1,0 +1,130 @@
+MiniDayZ+ Reimagined 2.3.8 - What's new
+
+MiniDayZ+ Reimagined by Civert0. This list covers versions 2.3.4 to 2.3.8.
+Single player stays the original game. Everything marked (MP) is for multiplayer only.
+
+
+=== NEW IN 2.3.8 ===
+
+Raiding (MP)
+- C-4 damages player-built structures. One charge breaks a barricade, a wooden gate or a tent; a metal gate or a metal fence needs two.
+- Molotov fire burns wooden structures (barricades, wooden gates, tents, tent doors, beds, feeders). One molotov burns a barricade, about two burn a wooden gate. Metal does not burn.
+- Flag poles can be taken over: press "Take over" in the flag pole panel and stay near the pole for 60 seconds. The takeover stops if you walk away or if the owner or their team comes back. A pole with no owner is taken at once.
+- The new owner gets the pole's build zone; its allowed list is cleared.
+- Server rule "Raiding off" turns all of this off.
+
+Island travel (MP)
+- Island travel is now a vote. When someone takes the boat, everyone gets a 60-second vote: tap Yes / No, or type /yes or /no in the chat. If more than half say yes, the boat leaves after the server's wait time. Admins can still send it at once or cancel it.
+- Players who follow the server to a new island arrive at random places along the west coast instead of all at one spot. Team members arrive together.
+
+No-build zones (MP)
+- Admins can mark map tiles (a military base, a town...) as no-build zones on the server admin page's map or in the toolkit's map. Only admins can build there; other players see "Building is not allowed here".
+- The server admin page's map shows the game's map icons: secret locations, helicopter crashes, Humvee wrecks, the bunker door, supply crates, boats, tents, stashes and cars.
+
+Admin item spawner (MP)
+- The admin panel (in game) and the server admin page now spawn items like the toolkit: item cards with the item's picture and category, search by name or ID, quantity, stack / ammo / charge, condition, and the attachments each gun takes. Give to yourself or to any player, or add to the starting kit.
+- Every item can be spawned, including the 4-dial Codelock, Lockpick, Flag Pole Kit, barrels and the 7.62/.308 Suppressor (the old list was missing them).
+
+Saves and world backups
+- A world backup now also holds the multiplayer host's world and every player's survivor (gear, clothes, backpacks, progress). Loading a backup restores all of it, and the next server you host starts from it.
+- Opened secret crates, felled trees, door locks, structure damage, boats and Keep Inventory no longer reset when a world moves to a new version or is exported and imported. This stops the crates refilling on every import.
+
+Storage
+- Item Carryover box upgrades: open the box's menu and choose "Upgrade" (under Open). Up to level 10, 2 more slots per level (6 to 26 slots, in pages). Each level needs a higher score (500 for level 1 up to 3200 for level 10). The score is not spent.
+- Barrels: new open lid / close lid buttons. The close lid button sits at the top left of the storage panel and really closes the lid now.
+- Barrels: an item dropped on a slot stays in that slot, also for joined players in multiplayer (their items used to slide into the next free slot). The water bar no longer overflows when full.
+- Barrels: walking into a barrel from behind no longer shows your feet below it.
+
+Islands and the radiation island (MP)
+- Island 7 can be chosen when hosting a new world.
+- The boats to the radiation island and their fuel are the same for everyone.
+- A second boat takes players back from the radiation island; it returns to the main island after 5 minutes. Servers can turn it off ("Radiation island: no return boat").
+- The map notes show the right island after a relog on the radiation island.
+
+Bunkers (MP)
+- Both bunkers exist on radiation maps; entering the radiation bunker no longer sends you to the normal one.
+- Bunker doors and vents are the same for every player.
+
+Multiplayer
+- Kill XP: killing zombies, animals, bandits and players gives score (for example zombie +3, wolf +10, tank zombie +25, player +25).
+- Team radio: a "Team radio" box in the voice panel. When it is on, your whole team hears you anywhere on the map.
+- Multiplayer closes on 11/25/2026. A notice at start offers Continue Singleplayer, News (Discord) or Play Multiplayer. "Continue Singleplayer" hides the Multiplayer and Characters buttons; "Multiplayer: Enabled / Disabled" in Options brings them back until that date.
+
+Interface
+- Changelog button on the main menu (this panel).
+- GUI Scale slider in the in-game options (in multiplayer, under the map grid options).
+- The tent door button and the barrel button no longer overlap.
+- New credit line on the main menu.
+- With multiplayer turned off, the main menu buttons close up (no gap). "Play Multiplayer" on the start notice brings back the Multiplayer button instead of opening the lobby by itself.
+
+Fixes
+- Players no longer walk through thin walls when the game runs slowly.
+- Island 7 no longer freezes while generating a large (32x32) map.
+- The tank zombie's slow-down can no longer stay on after leaving a vehicle.
+- More secret places on the large map.
+- Car trunks refresh correctly for joined players.
+
+
+=== NEW ITEMS ===
+
+- POX Vial: the infamous throwable from DayZ. Works on animals, NPCs and other players. Gives radiation, gas zone and bleeding effects.
+- POX 40mm Grenade: for the M79, the MGL and the grenade launcher attachment.
+- P45 Night Vision Goggles: P45 is a white phosphor tube, so the image is black and white with a slight blue tint (best with shaders on).
+- P45 NVG Assault Helmet
+- P45 NVG Assault Helmet with Flashlight
+- 7.62x54 / .308 Suppressor: for the VS / SV-98 sniper rifle (SCAR and M70 in future versions).
+- 4-dial Codelock: locks gates and tent doors with a 4-digit code. Found in garages, workshops, malls, gas stations, the container yard and car trunks.
+- Lockpick: picks codelocks and locks or unlocks house doors. Locked houses can also be forced open with many melee hits or shots.
+- Flag Pole Kit: crafted from an Ash Wood Stick and Rope.
+- Green Barrel and Blue Barrel: placeable storage that collects rain water.
+
+
+=== BASE BUILDING ===
+
+- Wooden and metal gates ("Build Gate" in the same menus as the barricade and the metal fence).
+- Build snapping: walls, gates and other placeables line up. Switch it on or off while placing.
+- Tents have doors that open and close, and can take a codelock.
+- Barrels: storage with backpack-style slots, can be lifted like the generator, outlined when you are near.
+- Flag poles: hang a flag (3 rags) and dye it with the Dye Bucket. In multiplayer a pole claims a build zone (shown as a ring): only the owner, their team and the players they allow can build there.
+
+
+=== MULTIPLAYER (MP) ===
+
+- The first working multiplayer for MiniDayZ+ (100% native: built on the Construct 2 runtime with a custom network API).
+- Lobby, server list, Direct connect, LAN and Host (phone or PC). Dedicated servers.
+- Chat (Global, Local, Team), voice chat, team radio, emotes and signs.
+- Player names and clan tags. Teams with a leader, admins and members, and team colours.
+- Leaderboard and PvP kills / deaths in the perks menu. Slash commands such as /server and /leaderboards.
+- Admin panel in the game and a web server panel (players, map, kill feed, bans, rules, announcements).
+- Custom multiplayer events: bunker raids, boat travel, island travel together, raiding, a custom death screen and more.
+- Beds are sleeping respawn points.
+- Vehicles have seats, with a capacity for each vehicle type.
+- Map grid with coordinates on the minimap.
+- Server rules: Keep Inventory, newcomers bring their single-player survivor, PvP, difficulty and more.
+- HorizonEye AntiCheat 0.3 (by Civert0).
+
+
+=== GAMEPLAY ===
+
+- Manual melee (directional). Auto melee can still be turned on in Main menu > Options.
+- Auto-aim toggle: turn auto-aim off to shoot freely in any direction with the D-pad / joystick and the fire button.
+- Full PC keybinds.
+- Extended backpacks: every backpack has twice the slots, with pages.
+- More vehicles per island; fixes for vehicle parts and the Humvee gun.
+- Shader graphics (MDZ Lighting): lights, shadows, weather, water and fog, with a Video Settings panel and an optional line of sight.
+
+
+=== WORLD ===
+
+- New world generation: 16x16 and 32x32 maps (16x32 on island 6 and above).
+- Location count option for the large map on the New Game screen.
+- Minimap zoom.
+- New item spawn locations.
+
+
+=== LANGUAGES ===
+
+- 11 languages: English, Russian, German, Spanish, French, Italian, Czech, Portuguese, Vietnamese, Chinese and Indonesian (Bahasa Indonesia).
+
+
+Not affiliated with Bohemia Interactive. DayZ and Bohemia Interactive are registered trademarks of Bohemia Interactive.

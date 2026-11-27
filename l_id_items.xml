@@ -1,0 +1,1677 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<list>
+<item>
+<id>0</id>
+<name></name>
+</item>
+<item>
+<id>1</id>
+<name>Kacang Kalengan</name>
+</item>
+<item>
+<id>2</id>
+<name>Tuna Kalengan</name>
+</item>
+<item>
+<id>3</id>
+<name>Bacon Taktis</name>
+</item>
+<item>
+<id>4</id>
+<name>Beras</name>
+</item>
+<item>
+<id>5</id>
+<name>Tomat</name>
+</item>
+<item>
+<id>6</id>
+<name>Apel</name>
+</item>
+<item>
+<id>7</id>
+<name>Pisang</name>
+</item>
+<item>
+<id>8</id>
+<name>Pipsi</name>
+</item>
+<item>
+<id>9</id>
+<name>Spite</name>
+</item>
+<item>
+<id>10</id>
+<name>Kvas</name>
+</item>
+<item>
+<id>11</id>
+<name>Amunisi 5.56x45</name>
+</item>
+<item>
+<id>12</id>
+<name>Amunisi .45 ACP</name>
+</item>
+<item>
+<id>13</id>
+<name>Amunisi 7.62x54R</name>
+</item>
+<item>
+<id>14</id>
+<name>Amunisi 7.62x39</name>
+</item>
+<item>
+<id>15</id>
+<name>Amunisi 5.45x39</name>
+</item>
+<item>
+<id>16</id>
+<name>Amunisi .357 M</name>
+</item>
+<item>
+<id>17</id>
+<name>Amunisi Kaliber 12</name>
+</item>
+<item>
+<id>18</id>
+<name>Perban</name>
+</item>
+<item>
+<id>19</id>
+<name>Kantong Darah Infus</name>
+</item>
+<item>
+<id>20</id>
+<name>Suar</name>
+</item>
+<item>
+<id>21</id>
+<name>Granat F1</name>
+</item>
+<item>
+<id>22</id>
+<name>Baterai 9V</name>
+</item>
+<item>
+<id>23</id>
+<name>Kit Api Unggun</name>
+</item>
+<item>
+<id>24</id>
+<name>Korek Api Batang</name>
+</item>
+<item>
+<id>25</id>
+<name>Wiski</name>
+</item>
+<item>
+<id>26</id>
+<name>Kain Lap</name>
+</item>
+<item>
+<id>27</id>
+<name>Cranberry</name>
+</item>
+<item>
+<id>28</id>
+<name>Kantong Salin Infus</name>
+</item>
+<item>
+<id>29</id>
+<name>Vitamin</name>
+</item>
+<item>
+<id>30</id>
+<name>Nota-Cola</name>
+</item>
+<item>
+<id>31</id>
+<name>Zukini</name>
+</item>
+<item>
+<id>32</id>
+<name>Paprika</name>
+</item>
+<item>
+<id>33</id>
+<name>Jeruk</name>
+</item>
+<item>
+<id>34</id>
+<name>Bantal Penghangat</name>
+</item>
+<item>
+<id>35</id>
+<name>Kit Jahit</name>
+</item>
+<item>
+<id>36</id>
+<name>Kit Pembersih Senjata</name>
+</item>
+<item>
+<id>37</id>
+<name>Tongkat Kayu Ash</name>
+</item>
+<item>
+<id>38</id>
+<name>Ranting Kayu</name>
+</item>
+<item>
+<id>39</id>
+<name>Lakban</name>
+</item>
+<item>
+<id>40</id>
+<name>Karung Goni</name>
+</item>
+<item>
+<id>41</id>
+<name>Tali</name>
+</item>
+<item>
+<id>42</id>
+<name>Pisau Berburu</name>
+</item>
+<item>
+<id>43</id>
+<name>Pisau Tentara</name>
+</item>
+<item>
+<id>44</id>
+<name>Pisau Jagal</name>
+</item>
+<item>
+<id>45</id>
+<name>Adrenalin</name>
+</item>
+<item>
+<id>46</id>
+<name>Tetrasiklin</name>
+</item>
+<item>
+<id>47</id>
+<name>Paket Benih Tomat</name>
+</item>
+<item>
+<id>48</id>
+<name>Paket Benih Paprika</name>
+</item>
+<item>
+<id>49</id>
+<name>Koran</name>
+</item>
+<item>
+<id>50</id>
+<name>Tumpukan Kayu</name>
+</item>
+<item>
+<id>51</id>
+<name>Panah Rakitan</name>
+</item>
+<item>
+<id>52</id>
+<name>Panah Komposit</name>
+</item>
+<item>
+<id>53</id>
+<name>Jeriken Bensin</name>
+</item>
+<item>
+<id>54</id>
+<name>Botol Air</name>
+</item>
+<item>
+<id>55</id>
+<name>Kantin Air</name>
+</item>
+<item>
+<id>56</id>
+<name>Ranjau Darat</name>
+</item>
+<item>
+<id>57</id>
+<name>Perangkap Beruang</name>
+</item>
+<item>
+<id>58</id>
+<name>Amunisi .22 LR</name>
+</item>
+<item>
+<id>59</id>
+<name>Kit Perkakas Mobil</name>
+</item>
+<item>
+<id>60</id>
+<name>Daging Mentah</name>
+</item>
+<item>
+<id>61</id>
+<name>Daging Panggang</name>
+</item>
+<item>
+<id>62</id>
+<name>Nuka-Cola</name>
+</item>
+<item>
+<id>63</id>
+<name>Minuman Energi</name>
+</item>
+<item>
+<id>64</id>
+<name>Pertukaran Setara</name>
+</item>
+<item>
+<id>65</id>
+<name>Bawa Barang</name>
+</item>
+<item>
+<id>66</id>
+<name>Mode Bangun</name>
+</item>
+<item>
+<id>67</id>
+<name>Toko Pengalaman</name>
+</item>
+<item>
+<id>68</id>
+<name>Paket Benih Zukini</name>
+</item>
+<item>
+<id>69</id>
+<name>Amunisi 9x19 P</name>
+</item>
+<item>
+<id>70</id>
+<name>Kawat Berduri</name>
+</item>
+<item>
+<id>71</id>
+<name>Kelinci Mentah</name>
+</item>
+<item>
+<id>72</id>
+<name>Kelinci Panggang</name>
+</item>
+<item>
+<id>73</id>
+<name>Cloudberry</name>
+</item>
+<item>
+<id>74</id>
+<name>Bilberry</name>
+</item>
+<item>
+<id>75</id>
+<name>Radio</name>
+</item>
+<item>
+<id>76</id>
+<name>RDS</name>
+</item>
+<item>
+<id>77</id>
+<name>Teropong PU</name>
+</item>
+<item>
+<id>78</id>
+<name>Teropong PSO-1</name>
+</item>
+<item>
+<id>79</id>
+<name>Teropong ACOG</name>
+</item>
+<item>
+<id>80</id>
+<name>Peredam 5.45</name>
+</item>
+<item>
+<id>81</id>
+<name>Peredam 5.56</name>
+</item>
+<item>
+<id>82</id>
+<name>Gergaji Besi</name>
+</item>
+<item>
+<id>83</id>
+<name>Sabuk Peluru</name>
+</item>
+
+<item>
+	<id>84</id>
+	<name>Gembok kode 4 digit</name>
+</item>
+<item>
+<id>85</id>
+<name>MRE</name>
+</item>
+<item>
+<id>86</id>
+<name>Joran Pancing Putar</name>
+</item>
+<item>
+<id>87</id>
+<name>Joran Pancing Sederhana</name>
+</item>
+<item>
+<id>88</id>
+<name>Kotak Pelindung</name>
+</item>
+<item>
+<id>89</id>
+<name>Magpul</name>
+</item>
+<item>
+<id>90</id>
+<name>Choke</name>
+</item>
+<item>
+<id>91</id>
+<name>Ikan Haring</name>
+</item>
+<item>
+<id>92</id>
+<name>Ikan Salmon</name>
+</item>
+<item>
+<id>93</id>
+<name>Ikan Ruffe</name>
+</item>
+<item>
+<id>94</id>
+<name>Ikan Perch</name>
+</item>
+<item>
+<id>95</id>
+<name>Fillet Bakar Kecil</name>
+</item>
+<item>
+<id>96</id>
+<name>Fillet Bakar Besar</name>
+</item>
+<item>
+<id>97</id>
+<name>Psilosibin🍄</name>
+</item>
+<item>
+<id>98</id>
+<name>Teropong Jarak Jauh</name>
+</item>
+<item>
+<id>99</id>
+<name>Claymore</name>
+</item>
+<item>
+<id>100</id>
+<name>Amunisi 9x18 M</name>
+</item>
+<item>
+<id>101</id>
+<name>Amunisi 9x39</name>
+</item>
+<item>
+<id>102</id>
+<name>Bom Molotov</name>
+</item>
+<item>
+<id>103</id>
+<name>Pistol Suar</name>
+</item>
+<item>
+<id>104</id>
+<name>Kotak Amunisi 50 BMG</name>
+</item>
+<item>
+<id>105</id>
+<name>Peluru Granat 40mm</name>
+</item>
+<item>
+<id>106</id>
+<name>Peluru Granat VOG-25</name>
+</item>
+<item>
+<id>107</id>
+<name>Pelontar Granat M203</name>
+</item>
+<item>
+<id>108</id>
+<name>Pelontar Granat GP-25</name>
+</item>
+<item>
+<id>109</id>
+<name>Kit Infus</name>
+</item>
+<item>
+<id>110</id>
+<name>Batu Asah</name>
+</item>
+<item>
+<id>111</id>
+<name>Pegangan AK</name>
+</item>
+<item>
+<id>112</id>
+<name>Pegangan Rel</name>
+</item>
+<item>
+<id>113</id>
+<name>Catatan Peta</name>
+</item>
+<item>
+<id>114</id>
+<name>Elderberry</name>
+</item>
+<item>
+<id>115</id>
+<name>Teropong Binokular</name>
+</item>
+<item>
+<id>116</id>
+<name>Buku Panduan Pramuka</name>
+</item>
+<item>
+<id>117</id>
+<name>Kanvas</name>
+</item>
+<item>
+<id>118</id>
+<name>Plester</name>
+</item>
+<item>
+<id>119</id>
+<name>Granat Asap M18</name>
+</item>
+<item>
+<id>120</id>
+<name>Rokok Soviet</name>
+</item>
+<item>
+<id>121</id>
+<name>Bir</name>
+</item>
+<item>
+<id>122</id>
+<name>Lem Epoksi</name>
+</item>
+<item>
+<id>123</id>
+<name>Pupuk</name>
+</item>
+<item>
+<id>124</id>
+<name>Pembidik Laser</name>
+</item>
+<item>
+<id>125</id>
+<name>Pemantik</name>
+</item>
+<item>
+<id>126</id>
+<name>Kartu Kunci</name>
+</item>
+<item>
+<id>127</id>
+<name>Peredam Rakitan</name>
+</item>
+<item>
+<id>128</id>
+<name>Teropong AN/PVS-4</name>
+</item>
+<item>
+<id>129</id>
+<name>Teropong 1PN51</name>
+</item>
+<item>
+<id>130</id>
+<name>Drum C-MAG 5.56</name>
+</item>
+<item>
+<id>131</id>
+<name>Magasin Drum 7.62x39</name>
+</item>
+<item>
+<id>132</id>
+<name>Wajan</name>
+</item>
+<item>
+<id>133</id>
+<name>Masker Gas</name>
+</item>
+<item>
+<id>134</id>
+<name>Balaclava</name>
+</item>
+<item>
+<id>135</id>
+<name>Masker Gas GP-5</name>
+</item>
+<item>
+<id>136</id>
+<name>Topeng Badut</name>
+</item>
+<item>
+<id>137</id>
+<name>Sarung Tangan Tempur</name>
+</item>
+<item>
+<id>138</id>
+<name>Amunisi .308 Win</name>
+</item>
+<item>
+<id>139</id>
+<name>Sepatu Kets</name>
+</item>
+<item>
+<id>140</id>
+<name>Sepatu Bot Hutan</name>
+</item>
+<item>
+<id>141</id>
+<name>Sepatu Bot Serbu</name>
+</item>
+<item>
+<id>142</id>
+<name>Tali Senapan</name>
+</item>
+<item>
+<id>143</id>
+<name>Tablet Arang</name>
+</item>
+<item>
+<id>144</id>
+<name>Obor Las</name>
+</item>
+<item>
+<id>145</id>
+<name>Pakaian Ghillie</name>
+</item>
+<item>
+<id>146</id>
+<name>Senter Bawah Laras</name>
+</item>
+<item>
+<id>147</id>
+<name>Pegangan AK Laser</name>
+</item>
+<item>
+<id>148</id>
+<name>Pegangan Rel Laser</name>
+</item>
+<item>
+<id>149</id>
+<name>Peredam 7.62/.308</name>
+</item>
+<item>
+<id>700</id>
+<name>Sepatu Bot NBC</name>
+</item>
+<item>
+<id>701</id>
+<name>Sarung Tangan NBC</name>
+</item>
+<item>
+<id>702</id>
+<name>Pakaian Kimia</name>
+</item>
+<item>
+<id>703</id>
+<name>Pakaian Hazmat</name>
+</item>
+<item>
+<id>704</id>
+<name>Magasin Drum Kaliber 12</name>
+</item>
+<item>
+<id>705</id>
+<name>Ember Pewarna🎨</name>
+</item>
+<item>
+<id>706</id>
+<name>Lampu Kepala</name>
+</item>
+<item>
+<id>707</id>
+<name>NVG</name>
+</item>
+<item>
+<id>708</id>
+<name>Kotak P3K AI-2</name>
+</item>
+<item>
+<id>709</id>
+<name>Kandang Anjing</name>
+</item>
+<item>
+<id>710</id>
+<name>Stimulan</name>
+</item>
+<item>
+<id>711</id>
+<name>Pakaian CBRN</name>
+</item>
+<item>
+<id>712</id>
+<name>Peta Laut</name>
+</item>
+<item>
+<id>713</id>
+<name>Pakaian NBC</name>
+</item>
+<item>
+<id>714</id>
+<name>Kulit Rusa</name>
+</item>
+<item>
+<id>715</id>
+<name>Drum C-MAG 5.45</name>
+</item>
+<item>
+<id>716</id>
+<name>Kalung Berduri</name>
+</item>
+<item>
+<id>717</id>
+<name>Tas Pelana</name>
+</item>
+<item>
+<id>718</id>
+<name>Telur</name>
+</item>
+<item>
+<id>719</id>
+<name>Ayam Mentah</name>
+</item>
+<item>
+<id>720</id>
+<name>Ayam Matang</name>
+</item>
+<item>
+<id>721</id>
+<name>Pembidik Mini</name>
+</item>
+<item>
+<id>722</id>
+<name>Peredam Pistol</name>
+</item>
+<item>
+<id>723</id>
+<name>Senter Pistol</name>
+</item>
+<item>
+<id>724</id>
+<name>Telur Goreng</name>
+</item>
+<item>
+<id>725</id>
+<name>Steak Lada</name>
+</item>
+<item>
+<id>726</id>
+<name>Shakshuka</name>
+</item>
+<item>
+<id>727</id>
+<name>Lampu Sorot</name>
+</item>
+<item>
+<id>728</id>
+<name>Cacing Tanah</name>
+</item>
+<item>
+<id>729</id>
+<name>VOG-25 Khatabka</name>
+</item>
+<item>
+<id>730</id>
+<name>FNX 45</name>
+</item>
+<item>
+<id>731</id>
+<name>Colt 1911</name>
+</item>
+<item>
+<id>732</id>
+<name>Revolver Magnum</name>
+</item>
+<item>
+<id>733</id>
+<name>Amphibia S</name>
+</item>
+<item>
+<id>734</id>
+<name>Glock 17</name>
+</item>
+<item>
+<id>735</id>
+<name>IZh-43 Gergaji</name>
+</item>
+<item>
+<id>736</id>
+<name>Mosin Obrez</name>
+</item>
+<item>
+<id>737</id>
+<name>Colt Berukir</name>
+</item>
+<item>
+<id>738</id>
+<name>Mare's Leg</name>
+</item>
+<item>
+<id>739</id>
+<name>PM</name>
+</item>
+<item>
+<id>740</id>
+<name>PB</name>
+</item>
+<item>
+<id>741</id>
+<name>Desert Eagle</name>
+</item>
+<item>
+<id>742</id>
+<name>M79</name>
+</item>
+<item>
+<id>743</id>
+<name>Obrez Blaze</name>
+</item>
+<item>
+<id>744</id>
+<name>Longhorn</name>
+</item>
+<item>
+<id>745</id>
+<name>MAC-10</name>
+</item>
+<item>
+<id>746</id>
+<name>Mini-UZI</name>
+</item>
+<item>
+<id>747</id>
+<name>C-4</name>
+</item>
+<item>
+<id>748</id>
+<name>Topi Sinterklas</name>
+</item>
+<item>
+<id>749</id>
+<name>Kado Natal</name>
+</item>
+<item>
+<id>750</id>
+<name>Daging Manusia</name>
+</item>
+<item>
+<id>751</id>
+<name>Daging Manusia Matang</name>
+</item>
+<item>
+<id>752</id>
+<name>Tas Selempang</name>
+</item>
+<item>
+<id>753</id>
+<name>Tas Selempang Tentara</name>
+</item>
+<item>
+<id>754</id>
+<name>Tas Selempang Medis</name>
+</item>
+<item>
+<id>755</id>
+<name>Koper Senjata</name>
+</item>
+<item>
+<id>756</id>
+<name>Sarung Pistol</name>
+</item>
+<item>
+<id>757</id>
+<name>Sarung Tangan Kerja</name>
+</item>
+<item>
+<id>758</id>
+<name>Amunisi 12.7x108</name>
+</item>
+<item>
+<id>759</id>
+<name>Filter Air (Bagus)</name>
+</item>
+<item>
+<id>760</id>
+<name>Filter Air (kosong)</name>
+</item>
+<item>
+<id>761</id>
+<name>Kotak Amunisi</name>
+</item>
+<item>
+<id>762</id>
+<name>Kotak Amunisi</name>
+</item>
+<item>
+<id>763</id>
+<name>Kotak Amunisi</name>
+</item>
+<item>
+<id>764</id>
+<name>Kotak Amunisi</name>
+</item>
+<item>
+<id>765</id>
+<name>Kotak Amunisi</name>
+</item>
+<item>
+<id>766</id>
+<name>Kotak Amunisi</name>
+</item>
+<item>
+<id>767</id>
+<name>Kotak Amunisi</name>
+</item>
+<item>
+<id>768</id>
+<name>Kotak Amunisi</name>
+</item>
+<item>
+<id>769</id>
+<name>Kotak Amunisi</name>
+</item>
+<item>
+<id>770</id>
+<name>Kotak Amunisi</name>
+</item>
+<item>
+<id>771</id>
+<name>Kotak Amunisi</name>
+</item>
+<item>
+<id>772</id>
+<name>Kotak Amunisi</name>
+</item>
+<item>
+<id>773</id>
+<name>Kotak Amunisi</name>
+</item>
+<item>
+<id>774</id>
+<name>Kotak Amunisi</name>
+</item>
+<item>
+<id>775</id>
+<name>Kotak Amunisi</name>
+</item>
+<item>
+<id>776</id>
+<name>Kotak Amunisi</name>
+</item>
+<item>
+<id>777</id>
+<name>Pir</name>
+</item>
+<item>
+<id>778</id>
+<name>Karung Goni (Ayam)</name>
+</item>
+<item>
+<id>779</id>
+<name>Karung Goni (Babi)</name>
+</item>
+<item>
+<id>780</id>
+<name>Daging Serigala Mentah</name>
+</item>
+<item>
+<id>781</id>
+<name>Daging Serigala Panggang</name>
+</item>
+<item>
+<id>782</id>
+<name>Daging Beruang Mentah</name>
+</item>
+<item>
+<id>783</id>
+<name>Daging Beruang Panggang</name>
+</item>
+<item>
+<id>784</id>
+<name>Kulit Beruang</name>
+</item>
+<item>
+<id>785</id>
+<name>Kapak Romero 77</name>
+</item>
+<item>
+<id>786</id>
+<name>Lentera Labu</name>
+</item>
+<item>
+<id>787</id>
+<name>Topi Penyihir</name>
+</item>
+<item>
+<id>788</id>
+<name>Lampu Natal</name>
+</item>
+<item>
+<id>999</id>
+<name>
+</name>
+</item>
+<item>
+<id>151</id>
+<name>FNX 45</name>
+</item>
+<item>
+<id>152</id>
+<name>Colt 1911</name>
+</item>
+<item>
+<id>153</id>
+<name>Revolver Magnum</name>
+</item>
+<item>
+<id>154</id>
+<name>IZh-43</name>
+</item>
+<item>
+<id>155</id>
+<name>Remington 870</name>
+</item>
+<item>
+<id>156</id>
+<name>Mosin-Nagant</name>
+</item>
+<item>
+<id>157</id>
+<name>SKS</name>
+</item>
+<item>
+<id>158</id>
+<name>M4A1</name>
+</item>
+<item>
+<id>159</id>
+<name>AKM</name>
+</item>
+<item>
+<id>160</id>
+<name>AK-74</name>
+</item>
+<item>
+<id>161</id>
+<name>AKs-74u</name>
+</item>
+<item>
+<id>162</id>
+<name>L85A2</name>
+</item>
+<item>
+<id>163</id>
+<name>Busur Rakitan</name>
+</item>
+<item>
+<id>164</id>
+<name>Busur Silang Berburu</name>
+</item>
+<item>
+<id>165</id>
+<name>Amphibia S</name>
+</item>
+<item>
+<id>166</id>
+<name>Ruger 10/22 Sporter</name>
+</item>
+<item>
+<id>167</id>
+<name>M92 Repeater</name>
+</item>
+<item>
+<id>168</id>
+<name>SVD Dragunov</name>
+</item>
+<item>
+<id>169</id>
+<name>MP5K</name>
+</item>
+<item>
+<id>170</id>
+<name>Glock 17</name>
+</item>
+<item>
+<id>171</id>
+<name>IZh-43 Gergaji</name>
+</item>
+<item>
+<id>172</id>
+<name>Mosin Obrez</name>
+</item>
+<item>
+<id>173</id>
+<name>UMP-45</name>
+</item>
+<item>
+<id>174</id>
+<name>RPK</name>
+</item>
+<item>
+<id>175</id>
+<name>FN-FAL</name>
+</item>
+<item>
+<id>176</id>
+<name>Colt Berukir</name>
+</item>
+<item>
+<id>177</id>
+<name>AUG A1</name>
+</item>
+<item>
+<id>178</id>
+<name>Saiga-12K</name>
+</item>
+<item>
+<id>179</id>
+<name>MAC-10</name>
+</item>
+<item>
+<id>180</id>
+<name>Mare's Leg</name>
+</item>
+<item>
+<id>181</id>
+<name>PM</name>
+</item>
+<item>
+<id>182</id>
+<name>PB</name>
+</item>
+<item>
+<id>183</id>
+<name>PP-19 Bizon</name>
+</item>
+<item>
+<id>184</id>
+<name>OTs-14 Groza</name>
+</item>
+<item>
+<id>185</id>
+<name>VSS Vintorez</name>
+</item>
+<item>
+<id>186</id>
+<name>SV-98</name>
+</item>
+<item>
+<id>187</id>
+<name>Madsen</name>
+</item>
+<item>
+<id>188</id>
+<name>AN-94</name>
+</item>
+<item>
+<id>189</id>
+<name>Desert Eagle</name>
+</item>
+<item>
+<id>190</id>
+<name>Remington Berperedam</name>
+</item>
+<item>
+<id>191</id>
+<name>Colt M16A2</name>
+</item>
+<item>
+<id>192</id>
+<name>KRISS Vector</name>
+</item>
+<item>
+<id>193</id>
+<name>M4A1</name>
+</item>
+<item>
+<id>194</id>
+<name>AKM</name>
+</item>
+<item>
+<id>195</id>
+<name>M70 Tundra</name>
+</item>
+<item>
+<id>196</id>
+<name>Saiga-12K</name>
+</item>
+<item>
+<id>197</id>
+<name>RPK</name>
+</item>
+<item>
+<id>198</id>
+<name>M16A2</name>
+</item>
+<item>
+<id>199</id>
+<name>AUG A1</name>
+</item>
+<item>
+<id>230</id>
+<name>Milkor MGL</name>
+</item>
+<item>
+<id>231</id>
+<name>Blaze</name>
+</item>
+<item>
+<id>232</id>
+<name>FAMAS F1</name>
+</item>
+<item>
+<id>233</id>
+<name>Mini-14</name>
+</item>
+<item>
+<id>234</id>
+<name>M79</name>
+</item>
+<item>
+<id>235</id>
+<name>Obrez Blaze</name>
+</item>
+<item>
+<id>236</id>
+<name>Longhorn</name>
+</item>
+<item>
+<id>237</id>
+<name>AK-74</name>
+</item>
+<item>
+<id>238</id>
+<name>AKs-74u</name>
+</item>
+<item>
+<id>239</id>
+<name>Mini-UZI</name>
+</item>
+<item>
+<id>240</id>
+<name>AS-VAL</name>
+</item>
+<item>
+<id>241</id>
+<name>M249 SAW</name>
+</item>
+<item>
+<id>242</id>
+<name>OSV-96</name>
+</item>
+<item>
+<id>243</id>
+<name>Pelontar Api M-40</name>
+</item>
+<item>
+<id>244</id>
+<name>Kapak Romero 77</name>
+</item>
+<item>
+<id>245</id>
+<name>Minigun M134</name>
+</item>
+<item>
+<id>246</id>
+<name>PKM</name>
+</item>
+<item>
+<id>200</id>
+<name>Kunci Pipa</name>
+</item>
+<item>
+<id>201</id>
+<name>Sekop</name>
+</item>
+<item>
+<id>202</id>
+<name>Kapak Kecil</name>
+</item>
+<item>
+<id>203</id>
+<name>Tongkat Bisbol</name>
+</item>
+<item>
+<id>204</id>
+<name>Kapak Pemadam</name>
+</item>
+<item>
+<id>205</id>
+<name>Linggis</name>
+</item>
+<item>
+<id>206</id>
+<name>Beliung</name>
+</item>
+<item>
+<id>207</id>
+<name>Garpu Rumput</name>
+</item>
+<item>
+<id>208</id>
+<name>Palu Godam</name>
+</item>
+<item>
+<id>209</id>
+<name>Pedang Tentara Salib</name>
+</item>
+<item>
+<id>210</id>
+<name>Panci</name>
+</item>
+<item>
+<id>211</id>
+<name>Katana</name>
+</item>
+<item>
+<id>212</id>
+<name>Tongkat Berduri</name>
+</item>
+<item>
+<id>213</id>
+<name>Gergaji Mesin</name>
+</item>
+<item>
+<id>214</id>
+<name>Generator</name>
+</item>
+<item>
+<id>215</id>
+<name>Lembaran Logam</name>
+</item>
+<item>
+<id>216</id>
+<name>Obor</name>
+</item>
+
+<item>
+	<id>217</id>
+	<name>Drum hijau</name>
+</item>
+
+<item>
+	<id>218</id>
+	<name>Drum biru</name>
+</item>
+<item>
+<id>250</id>
+<name>Masker Gas</name>
+</item>
+<item>
+<id>251</id>
+<name>Helm Tentara</name>
+</item>
+<item>
+<id>252</id>
+<name>Helm Motor</name>
+</item>
+<item>
+<id>253</id>
+<name>Helm Motor</name>
+</item>
+<item>
+<id>254</id>
+<name>Topi Hangat</name>
+</item>
+<item>
+<id>255</id>
+<name>Baret</name>
+</item>
+<item>
+<id>256</id>
+<name>Topi</name>
+</item>
+<item>
+<id>257</id>
+<name>Balaclava</name>
+</item>
+<item>
+<id>258</id>
+<name>Ushanka</name>
+</item>
+<item>
+<id>259</id>
+<name>Helm Proyek</name>
+</item>
+<item>
+<id>260</id>
+<name>Lampu Kepala</name>
+</item>
+<item>
+<id>261</id>
+<name>Topi Koboi</name>
+</item>
+<item>
+<id>262</id>
+<name>Topeng Las</name>
+</item>
+<item>
+<id>263</id>
+<name>Helm Gorka</name>
+</item>
+<item>
+<id>264</id>
+<name>Topi Polisi</name>
+</item>
+<item>
+<id>265</id>
+<name>NVG</name>
+</item>
+<item>
+<id>266</id>
+<name>Bandana</name>
+</item>
+<item>
+<id>267</id>
+<name>Helm Tentara Salib</name>
+</item>
+<item>
+<id>268</id>
+<name>Helm Pilot</name>
+</item>
+<item>
+<id>269</id>
+<name>Helm Altyn</name>
+</item>
+<item>
+<id>270</id>
+<name>Helm Rys-T</name>
+</item>
+<item>
+<id>271</id>
+<name>Masker Gas GP-5</name>
+</item>
+<item>
+<id>272</id>
+<name>Topeng Badut</name>
+</item>
+<item>
+<id>273</id>
+<name>Helm Serbu</name>
+</item>
+<item>
+<id>274</id>
+<name>Helm Serbu</name>
+</item>
+<item>
+<id>275</id>
+<name>Helm Serbu</name>
+</item>
+<item>
+<id>276</id>
+<name>Helm Serbu</name>
+</item>
+<item>
+<id>277</id>
+<name>Helm Altyn NV</name>
+</item>
+<item>
+<id>300</id>
+<name>Celana Jeans</name>
+</item>
+<item>
+<id>301</id>
+<name>Celana Kerja</name>
+</item>
+<item>
+<id>302</id>
+<name>Celana Olahraga</name>
+</item>
+<item>
+<id>303</id>
+<name>Celana Gorka</name>
+</item>
+<item>
+<id>304</id>
+<name>Celana Orel</name>
+</item>
+<item>
+<id>305</id>
+<name>Celana Paramedis</name>
+</item>
+<item>
+<id>306</id>
+<name>Celana Pemburu</name>
+</item>
+<item>
+<id>307</id>
+<name>Celana Pemadam</name>
+</item>
+<item>
+<id>350</id>
+<name>Kaus</name>
+</item>
+<item>
+<id>351</id>
+<name>Kemeja</name>
+</item>
+<item>
+<id>352</id>
+<name>Kemeja</name>
+</item>
+<item>
+<id>353</id>
+<name>Jas Hujan</name>
+</item>
+<item>
+<id>354</id>
+<name>Jaket</name>
+</item>
+<item>
+<id>355</id>
+<name>Jaket Gorka</name>
+</item>
+<item>
+<id>356</id>
+<name>Hoodie</name>
+</item>
+<item>
+<id>357</id>
+<name>Hoodie</name>
+</item>
+<item>
+<id>358</id>
+<name>Mantel Trench</name>
+</item>
+<item>
+<id>359</id>
+<name>Jaket Paramedis</name>
+</item>
+<item>
+<id>360</id>
+<name>Jaket Orel</name>
+</item>
+<item>
+<id>361</id>
+<name>Jaket Olahraga</name>
+</item>
+<item>
+<id>362</id>
+<name>Gaun</name>
+</item>
+<item>
+<id>363</id>
+<name>Jaket Bulu Angsa</name>
+</item>
+<item>
+<id>364</id>
+<name>Jaket Pemburu</name>
+</item>
+<item>
+<id>365</id>
+<name>Sweter</name>
+</item>
+<item>
+<id>366</id>
+<name>Hoodie Keren</name>
+</item>
+<item>
+<id>367</id>
+<name>Jaket Pemadam</name>
+</item>
+<item>
+<id>368</id>
+<name>Baju Zirah Tentara Salib</name>
+</item>
+<item>
+<id>400</id>
+<name>Rompi Balistik</name>
+</item>
+<item>
+<id>401</id>
+<name>Rompi Pers</name>
+</item>
+<item>
+<id>402</id>
+<name>Rompi Serbu</name>
+</item>
+<item>
+<id>403</id>
+<name>Rompi Kapasitas Tinggi</name>
+</item>
+<item>
+<id>404</id>
+<name>Rompi Kevlar</name>
+</item>
+<item>
+<id>405</id>
+<name>Rompi Soviet</name>
+</item>
+<item>
+<id>406</id>
+<name>Celemek</name>
+</item>
+<item>
+<id>407</id>
+<name>Pakaian Ghillie</name>
+</item>
+<item>
+<id>408</id>
+<name>Rompi Zirah Berat M</name>
+</item>
+<item>
+<id>409</id>
+<name>Pakaian Kimia</name>
+</item>
+<item>
+<id>410</id>
+<name>Pakaian CBRN Kevlar M</name>
+</item>
+<item>
+<id>411</id>
+<name>Pakaian CBRN Berat M</name>
+</item>
+<item>
+<id>412</id>
+<name>Pakaian CBRN Ghillie M</name>
+</item>
+<item>
+<id>413</id>
+<name>Pakaian Hazmat</name>
+</item>
+<item>
+<id>414</id>
+<name>Pakaian NBC</name>
+</item>
+<item>
+<id>415</id>
+<name>Pakaian CBRN</name>
+</item>
+<item>
+<id>450</id>
+<name>Ransel Taloon</name>
+</item>
+<item>
+<id>451</id>
+<name>Ransel Berburu</name>
+</item>
+<item>
+<id>452</id>
+<name>Ransel Gunung</name>
+</item>
+<item>
+<id>453</id>
+<name>Ransel Sekolah</name>
+</item>
+<item>
+<id>454</id>
+<name>Tas Gendong Rakitan</name>
+</item>
+<item>
+<id>455</id>
+<name>Ransel Rakitan</name>
+</item>
+<item>
+<id>456</id>
+<name>Tenda Sipil</name>
+</item>
+<item>
+<id>457</id>
+<name>Ransel Tortilla</name>
+</item>
+<item>
+<id>458</id>
+<name>Tas Selempang</name>
+</item>
+<item>
+<id>459</id>
+<name>Tas Selempang Tentara</name>
+</item>
+<item>
+<id>460</id>
+<name>Tas Selempang Medis</name>
+</item>
+<item>
+<id>461</id>
+<name>Simpanan Persediaan</name>
+</item>
+<item>
+<id>462</id>
+<name>Paket Bahan Bakar</name>
+</item>
+<item>
+<id>789</id>
+<name>NVG P45</name>
+</item>
+<item>
+<id>790</id>
+<name>NVG P45</name>
+</item>
+<item>
+<id>791</id>
+<name>Helm Serbu P45</name>
+</item>
+<item>
+<id>792</id>
+<name>Helm Serbu P45</name>
+</item>
+<item>
+<id>793</id>
+<name>Botol Cacar</name>
+</item>
+<item>
+<id>794</id>
+<name>Granat Cacar 40mm</name>
+</item>
+
+<item>
+	<id>795</id>
+	<name>Alat pembuka kunci</name>
+</item>
+
+<item>
+	<id>796</id>
+	<name>Kit tiang bendera</name>
+</item>
+</list>
