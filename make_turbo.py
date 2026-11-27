@@ -210,6 +210,20 @@ for idx in range(paid):
 out = json.dumps(data, ensure_ascii=False, separators=(",", ":"))
 open(DST, "w", encoding="utf-8").write(("\ufeff" if bom else "") + out)
 
+# ★ 关键：游戏用 Service Worker 离线缓存，sw.js 按 offline.js 里的 version 生成缓存名。
+#   版本不变就一直用缓存的旧 data.js —— 改文件也不会生效。
+#   所以每次生成后必须换一个 version，强制 SW 重新下载 data.js。
+import hashlib
+OFFLINE = os.path.join(HERE, "offline.js")
+if os.path.exists(OFFLINE):
+    digest = hashlib.md5(out.encode("utf-8")).hexdigest()[:12]
+    new_ver = "2.3.8-turbo-" + digest
+    oj = open(OFFLINE, encoding="utf-8").read()
+    oj2 = re.sub(r'"version"\s*:\s*"[^"]*"', '"version": "%s"' % new_ver, oj, count=1)
+    if oj2 != oj:
+        open(OFFLINE, "w", encoding="utf-8").write(oj2)
+        print(f"[缓存] offline.js 版本已更新为 {new_ver}（强制 Service Worker 重新加载 data.js）")
+
 print(f"[掉落] 物资生成点 {total} 个：{paid} 个（{paid*100//total}%）改为枪+弹药成对"
       f"（{paid//2} 对，覆盖 {len(GUN_ORDER)} 把枪）")
 print(f"[弹药] {len(AMMO_OBJECTS)} 种口径数量固定 {ALL_AMMO_COUNT} 发（{S['ammo']} 处赋值，加成归零）")

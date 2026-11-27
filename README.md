@@ -86,7 +86,37 @@ python3 -m http.server 8080
 
 `F11` 全屏，`ESC` 把操作模式从摇杆改成 `tap/draw`。**改过文件后按 `Ctrl+Shift+R` 强制刷新**。
 
-## ⚠️ v7 关键修正（之前版本为什么刷不出枪）
+## 🚨 最重要：Service Worker 缓存（为什么之前改了都没效果）
+
+游戏注册了 Service Worker 做离线缓存（`sw.js` + `offline.js`）。`sw.js` 用 `offline.js` 里的 **`version`** 字段生成缓存名：
+
+```json
+{ "version": "2.3.8-turbo-058e4a2028ea", "fileList": ["data.js", ...] }
+```
+
+**版本号不变 → 缓存名不变 → 浏览器直接用缓存里的旧 `data.js`，改文件毫无作用。**
+
+这就是为什么前面十几轮改掉落、改弹药数量、改速度全部"没生效"——你玩的一直是第一次缓存的旧数据。
+
+### 解决办法（生成器已自动处理）
+
+`make_turbo.py` 每次生成后会**自动改写 `offline.js` 的 version**（用新 data.js 的 md5 前 12 位），强制 SW 建立新缓存并重新下载。
+
+### 你本地如果还看到旧效果
+
+SW 更新有两步，最保险的做法：
+
+1. **F12 → Application → Storage → Clear site data**（或 Ctrl+Shift+Delete 勾选"Cookie 及其他站点数据"）
+2. 或者开一个**无痕窗口**访问
+3. 然后 **New Game** 开新档
+
+验证是否用上了新数据：F12 Console 执行
+```js
+(await (await fetch('data.js')).text()).match(/2\.3\.8-turbo-[a-f0-9]+/)?.[0]
+```
+再查 `Application → Cache Storage`，缓存名应带 `turbo-` 前缀。
+
+## ⚠️ v7 修正（Spawn_drop 参数含义）
 
 `Spawn_drop` 的调用形式是：
 
