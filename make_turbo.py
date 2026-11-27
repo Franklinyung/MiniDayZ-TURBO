@@ -31,6 +31,9 @@ GUN_EVERY = 3         # 每 N 次随机掉落 1 次是枪，其余是弹药
 INFINITE_ITEMS = True # True = 所有可堆叠物品（含子弹）消耗时 +1，用不完
                       # False = 恢复原版消耗
 INFINITE_STACK = True # True = 堆叠上限解锁为 31415926（配合上面，数量涨了也不会溢出）
+
+# 背包格(obj6) 的全部数量变量：不同装备槽位的物品数量分开存
+CONSUME_VARS = (11, 12, 13, 15, 16)
 # ────────────────────────────────────────────────────────────
 
 raw = open(SRC, encoding="utf-8").read()
@@ -101,12 +104,19 @@ def walk(o):
                         last[1][1] = AMMO_ID
                         S["ammo"] += 1
 
-        # ── 3. 物品消耗 [0,[5,[21,6,false,null,12],[0,1]]]  数量 - 1
-        #      改成 - (-1)，即数量 + 1。只认这个精确结构，不碰其它减法。
+        # ── 3. 物品消耗 [0,[5,[21,6,false,null,VAR],[0,1]]]  数量 - 1
+        #      背包格(obj6) 有 5 个独立数量变量：var11/12/13/15/16
+        #      （对应不同装备槽位，弹药分布在不同变量里），必须全部处理。
+        #      把常量 1 改成 -1 → 「数量 - (-1)」= 数量 +1。
         if (len(o) == 2 and o[0] == 0 and isinstance(o[1], list)
-                and o[1] == [5, [21, 6, False, None, 12], [0, 1]]):
+                and len(o[1]) == 3 and o[1][0] == 5
+                and isinstance(o[1][1], list) and len(o[1][1]) == 5
+                and o[1][1][:2] == [21, 6] and o[1][1][4] in CONSUME_VARS
+                and o[1][2] == [0, 1]):
             o[1][2][1] = -1
             S["consume"] += 1
+            S.setdefault("by_var", {})
+            S["by_var"][o[1][1][4]] = S["by_var"].get(o[1][1][4], 0) + 1
 
         # ── 4. 堆叠上限 [18,[12,[23,"perk_cybb"],[0,1]],[0,31415926],[0,X]] → 恒无限
         if (len(o) == 4 and o[0] == 18
@@ -132,7 +142,7 @@ open(DST, "w", encoding="utf-8").write(("\ufeff" if bom else "") + out)
 print(f"[经验] 常量节点 ×{XP_MULT}：{S['xp_nodes']} 个；扣分保持原样 {S['xp_penalty']} 处")
 print(f"[掉落] 随机掉落 {S['drops']} 处全部改为必出：枪 {S['guns']} / 弹药 {S['ammo']}")
 if INFINITE_ITEMS:
-    print(f"[无限] 消耗动作 -1 → +1：{S['consume']} 处")
+    print(f"[无限] 消耗动作 -1 → +1：{S['consume']} 处  {dict(sorted(S.get('by_var', {}).items()))}")
 if INFINITE_STACK:
     print(f"[上限] 堆叠上限解锁：{S['stack']} 处")
 print(f"[输出] {DST}  {os.path.getsize(DST) / 1024 / 1024:.1f} MB")
